@@ -59,17 +59,17 @@ module.exports = {
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.jpg'],
         alias: {
-            "@Layouts": path.resolve(__dirname, "src/layouts/"),
-            "@Components": path.resolve(__dirname, "src/components/"),
+            "@Layouts": path.resolve(__dirname, "src/app/layouts/"),
+            "@Components": path.resolve(__dirname, "src/app/components/"),
             "@Images": path.resolve(__dirname, "src/images/"),
-            "@Store": path.resolve(__dirname, "src/store/"),
-            "@Utils": path.resolve(__dirname, "src/utils"),
-            "@Styles": path.resolve(__dirname, 'src/styles/'),
-            "@Pages": path.resolve(__dirname, 'src/pages/'),
-            "@Services": path.resolve(__dirname, 'src/services/'),
-            "@Models": path.resolve(__dirname, 'src/models/'),
-            "@Core": path.resolve(__dirname, 'src/core/'),
-            "@Config": path.resolve(__dirname, "src/config/")
+            "@Store": path.resolve(__dirname, "src/app/store/"),
+            "@Utils": path.resolve(__dirname, "src/app/utils"),
+            "@Styles": path.resolve(__dirname, 'src/app/styles/'),
+            "@Pages": path.resolve(__dirname, 'src/app/pages/'),
+            "@Services": path.resolve(__dirname, 'src/app/services/'),
+            "@Models": path.resolve(__dirname, 'src/app/models/'),
+            "@Core": path.resolve(__dirname, 'src/app/core/'),
+            "@Config": path.resolve(__dirname, "src/app/config/")
         }
     },
 }

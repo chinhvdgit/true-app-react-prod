@@ -8,8 +8,6 @@ import {useFormik} from 'formik'
 import * as auth from '../redux/AuthRedux'
 import {login} from '../redux/AuthCRUD'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
-import { Redirect, RouteComponentProps, withRouter } from "react-router";
-import { withStore } from "@Store/index";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -33,24 +31,6 @@ const initialValues = {
   https://jaredpalmer.com/formik/docs/tutorial#getfieldprops
   https://medium.com/@maurice.de.beijer/yup-validation-and-typescript-and-formik-6c342578a20e
 */
-
-// type Props = RouteComponentProps<{}> & typeof loginStore.actionCreators & loginStore.ILoginStoreState;
-
-// const LoginPage: React.FC<Props> = (props: Props) => {
-
-// }
-
-// // Connect component with Redux store.
-// var connectedComponent = withStore(
-//     LoginPage,
-//     state => state.login, // Selects which state properties are merged into the component's props.
-//     loginStore.actionCreators, // Selects which action creators are merged into the component's props.
-// );
-
-// // Attach the React Router to the component to have an opportunity
-// // to interract with it: use some navigation components, 
-// // have an access to React Router fields in the component's props, etc.
-// export default withRouter(connectedComponent);
 
 export function Login() {
   const [loading, setLoading] = useState(false)
