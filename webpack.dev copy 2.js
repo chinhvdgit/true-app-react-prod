@@ -29,11 +29,16 @@ module.exports = merge(common, {
     // mà khi build là cú pháp js5 cái ta cần là chính xác lỗi chỗ nào, 
     // đó là lý do bạn nên để 'inline-source-map'
     devtool: 'inline-source-map',
+    // devServer: {
+    //     // contentBase: './dist',
+    //     static: {
+    //         directory: path.join(__dirname, 'public'),
+    //     },
+    //     hot: true,
+    //     historyApiFallback: true
+    // },
     devServer: {
-        // contentBase: './dist',
-        static: {
-            directory: path.join(__dirname, 'public'),
-        },
+        contentBase: './dist',
         hot: true,
         historyApiFallback: true
     },
@@ -69,9 +74,12 @@ module.exports = merge(common, {
         new InterpolateHtmlPlugin({
             'PUBLIC_URL': '' // can modify `static` to another name or get it from `process`
         }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template:  path.join(__dirname, "public", "index.html"), //'public/index.html' //
+        // })
         new HtmlWebpackPlugin({
-            inject: true,
-            template:  path.join(__dirname, "public", "index.html"), //'public/index.html' //
+            template: "./public/index.html"
         })
     ]
 });

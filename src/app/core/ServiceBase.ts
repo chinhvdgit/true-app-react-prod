@@ -1,12 +1,11 @@
 ﻿import Result from "./Result";
 import Axios, { AxiosRequestConfig } from "axios";
-import { transformUrl } from "domain-wait";
 import queryString from "query-string";
 import { isNode, showErrors, getNodeProcess } from "@Utils";
 import SessionManager from "./session";
 import {ROOT_API} from "@Config/api.config";
 
-Axios.defaults.withCredentials = true;
+// Axios.defaults.withCredentials = true;
 
 export interface IRequestOptions {
     url: string;
@@ -38,7 +37,8 @@ export abstract class ServiceBase {
         opts.isShowError = opts.isShowError ?? true;
 
         // opts.url = `https://localhost:5001/${transformUrl(opts.url)}`; // Allow requests also for the Node.
-        opts.url = `${ROOT_API}/${transformUrl(opts.url)}`; // Allow requests also for the Node.
+        // opts.url = `${ROOT_API}/${transformUrl(opts.url)}`; // Allow requests also for the Node.
+        opts.url = `${ROOT_API}/${opts.url}`; // Allow requests also for the Node.
 
         var processQuery = (url: string, data: any): string => {
             if (data) {
@@ -66,6 +66,8 @@ export abstract class ServiceBase {
             withCredentials: true
         }
         
+        console.log('requestJson', opts);
+
 
         try {
             switch (opts.method) {
@@ -86,10 +88,18 @@ export abstract class ServiceBase {
                     break;
             }
             result = new Result(axiosResult.data.value, ...axiosResult.data.errors);
+
+        console.log('requestJson result', result);
+
         } catch (error) {
             result = this.handleApiException(error);
+
+        console.log('requestJson error', error);
+
             // result = new Result(null, error.message);
         }
+
+        console.log('requestJson result', result);
 
         if (result.hasErrors && opts.isShowError) {
             showErrors(...result.errors);

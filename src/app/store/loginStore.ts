@@ -31,6 +31,8 @@ export const { reducer } = slice;
 // Define action creators.
 export const actionCreators = {
     login: (model: ILoginModel) => async (dispatch: Dispatch) => {
+        console.log('login');
+
         dispatch(slice.actions.setFetching(true));
 
         const service = new AccountService();

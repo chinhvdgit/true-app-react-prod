@@ -6,6 +6,8 @@ import { IApplicationState, reducers } from "@Store/index";
 import { History } from "history";
 
 export default function configureStore(history: History, initialState?: IApplicationState) {
+console.log('configureStore');
+
 
     // Build middleware. These are functions that can process the actions before they reach the store.
     const windowIfDefined = typeof window === "undefined" ? null : window as any;

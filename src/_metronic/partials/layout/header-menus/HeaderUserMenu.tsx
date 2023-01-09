@@ -5,12 +5,12 @@ import {Link} from 'react-router-dom'
 import {UserModel} from '../../../../app/modules/auth/models/UserModel'
 import {RootState} from '../../../../setup'
 import {Languages} from './Languages'
-import * as auth from '../../../../app/modules/auth/redux/AuthRedux'
+import * as auth from '../../../../app/store/authStore'
 import {useDispatch} from 'react-redux'
 import {toAbsoluteUrl} from '../../../helpers'
 
 const HeaderUserMenu: FC = () => {
-  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel;
 
   const dispatch = useDispatch()
   const logout = () => {

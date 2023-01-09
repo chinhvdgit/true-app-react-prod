@@ -12,6 +12,7 @@ export default class AccountService extends ServiceBase {
         //     method: "POST",
         //     data: loginModel
         // });
+        console.log('AccountService login');
 
         var result = await this.requestJson<IServiceUser>({
             url: API_IDENTITY_AUTHENTICATE, 
@@ -19,6 +20,7 @@ export default class AccountService extends ServiceBase {
             data: loginModel
         });
 
+        console.log('AccountService login result', result);
 
         if (!result.hasErrors) {
             SessionManager.setServiceUser(result.value);

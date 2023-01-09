@@ -1,7 +1,7 @@
 import {FC, useRef, useEffect, useState} from 'react'
 import {shallowEqual, useSelector, connect, useDispatch, ConnectedProps} from 'react-redux'
 import {LayoutSplashScreen} from '../../../../_metronic/layout/core'
-import * as auth from '../../../store/authStore'
+import * as auth from './AuthRedux'
 import {getUserByToken} from './AuthCRUD'
 import {RootState} from '../../../../setup'
 
@@ -42,8 +42,6 @@ const AuthInit: FC<PropsFromRedux> = (props) => {
     }
 
     if (accessToken) {
-  console.log('AuthInit requestUser', accessToken);
-
       requestUser()
     } else {
       dispatch(props.logout())

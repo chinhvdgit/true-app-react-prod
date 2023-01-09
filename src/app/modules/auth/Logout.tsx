@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {Navigate, Routes} from 'react-router-dom'
-import * as auth from './redux/AuthRedux'
+import * as auth from '../../store/authStore'
 
 export function Logout() {
   const dispatch = useDispatch()

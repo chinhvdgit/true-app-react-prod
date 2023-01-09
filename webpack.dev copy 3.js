@@ -37,6 +37,11 @@ module.exports = merge(common, {
         hot: true,
         historyApiFallback: true
     },
+    // devServer: {
+    //     contentBase: './dist',
+    //     hot: true,
+    //     historyApiFallback: true
+    // },
     module: {
         // các file scss được loader bởi style-loader, css-loader, sass-loader
         rules: [
@@ -69,9 +74,12 @@ module.exports = merge(common, {
         new InterpolateHtmlPlugin({
             'PUBLIC_URL': '' // can modify `static` to another name or get it from `process`
         }),
+        // new HtmlWebpackPlugin({
+        //     inject: true,
+        //     template:  path.join(__dirname, "public", "index.html"), //'public/index.html' //
+        // })
         new HtmlWebpackPlugin({
-            inject: true,
-            template:  path.join(__dirname, "public", "index.html"), //'public/index.html' //
+            template: "./public/index.html"
         })
     ]
 });
